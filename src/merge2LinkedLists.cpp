@@ -12,12 +12,38 @@ NOTES:
 */
 
 #include <stdio.h>
-
+#include<stdlib.h>
 struct node {
 	int num;
 	struct node *next;
 };
+void swap(struct node *a, struct node *b);
 
 struct node * merge2LinkedLists(struct node *head1, struct node *head2) {
-	return NULL;
+	if (head1 == NULL && head2 == NULL) return NULL;
+	else if (head1 == NULL&&head2 != NULL) return head2;
+	else if (head1 != NULL && head2 == NULL) return head1;
+	else{
+		struct node* temp1 = head1;
+		struct node* temp = head1;
+		while (temp1->next != NULL){
+			temp1 = temp1->next;
+		}
+		temp1->next = head2;
+		for (temp = head1; temp->next != NULL; temp = temp->next){
+			for (temp1 = temp->next; temp1 != NULL; temp1 = temp1->next){
+				if (temp->num > temp1->num)
+					swap(temp, temp1);
+			}
+		}
+		//free(head2);
+		return head1;
+	}
 }
+void swap(struct node *a,struct node *b)
+{
+	int temp = a->num;
+	a->num = b->num;
+	b->num = temp;
+}
+

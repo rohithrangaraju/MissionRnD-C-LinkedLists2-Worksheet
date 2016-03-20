@@ -18,7 +18,7 @@ namespace spec
 		}
 
 		struct node * createList(int num) {
-			struct node *head = createNode(num % 10);
+		struct node *head = createNode(num % 10);
 			num /= 10;
 			while (num) {
 				struct node *newNode = createNode(num % 10);
