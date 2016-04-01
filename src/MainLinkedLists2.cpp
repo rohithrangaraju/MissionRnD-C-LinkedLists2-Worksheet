@@ -23,6 +23,7 @@ int main(){
 	//Test merge2 LinkedLists
 
 	//Test reverse LinkedList
-
+	printf("asasa");
+	getchar();
 	return 0;
 }
